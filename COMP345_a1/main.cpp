@@ -5,8 +5,12 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <sstream>
 
 using namespace std;
+
+//created methods
+vector<string> split(string str, string delim);
 
 //basic continents container
 class Continents {
@@ -20,20 +24,15 @@ public:
 	}
 };
 
-//basic country container
 class Countries {
 public:
-	string name;
-	int x_cord;
-	int y_cord;
-	string continent;
-	
-	vector<string> adjacent_countries;
+	vector<string> attributes;
 
-	Countries(string Name, int x, int y, vector<string> Links) {
-
+	Countries(vector<string> Attributes) {
+		attributes = Attributes;
 	}
 };
+
 
 /*
 //overloaded stream operator for Continents class "<<" 
@@ -41,6 +40,8 @@ std::ostream& operator<<(std::ostream &strm, const Continents &continent) {
 	return strm << continent.name << " " << continent.score;
 }
 */
+
+
 
 int main() {
 	
@@ -62,7 +63,7 @@ int main() {
 		//Continents vector that contains some continent objects which hold the name and score for owning such continent
 		vector<Continents> continents_list;
 		
-		//Countries vector like the continents list
+		//Countries Vector containing continents
 		vector<Countries> countries_list;
 
 		//loop to load each line
@@ -98,9 +99,6 @@ int main() {
 			}
 			//load the continents string names
 			else if (line.compare("[Continents]")==0) {
-				
-				//test counter
-				//int count = 0;
 
 				while (1) {
 				
@@ -125,11 +123,10 @@ int main() {
 				}
 			}
 			else if (line.compare("[Territories]") == 0) {
-				while (1) {
+				getline(map_file, line);
 
-					getline(map_file, line);
-					//need to figure out how to split a string in C++
-				}
+
+
 			}
 			else {
 				cout << "There was an error with the files format" << endl;
@@ -145,3 +142,25 @@ int main() {
 	}
 
 };
+
+
+//works
+vector<string> split(string str, string delim) {
+
+	vector<string> temp_container;
+
+	while (str.find(delim) != string::npos) {
+		
+		size_t position = str.find(delim);
+		temp_container.push_back(str.substr(0, position));
+		string temp = str.substr(position+1);
+		
+		str = temp;
+		
+		if (str.find(delim) == string::npos) {
+			temp_container.push_back(str);
+		}
+	}
+
+	return temp_container;
+}
