@@ -24,6 +24,9 @@ public:
 	}
 };
 
+//basic countries container
+//the attributes vector has these attributes in this order
+//name, x cord, y cord, continent, {remaining elements are adjacent countries}
 class Countries {
 public:
 	vector<string> attributes;
@@ -34,23 +37,16 @@ public:
 };
 
 
-/*
-//overloaded stream operator for Continents class "<<" 
-std::ostream& operator<<(std::ostream &strm, const Continents &continent) {
-	return strm << continent.name << " " << continent.score;
-}
-*/
-
-
-
 int main() {
 	
+	//open file for reading only
 	fstream map_file("../maps/D-Day/D-Day.map", ios::in);
 	
 	//checks to see if the file succesfully opened
 	if (map_file.is_open()) {
 		
 		//temporary string to store the line being loaded from the file
+		//approach loads one line at a time and parses it based on what it is
 		string line;
 
 		//Map attributes that are standard between all maps
@@ -115,7 +111,6 @@ int main() {
 						
 						//fill the vector with newly created objects the objects are located with the continents_list vector
 						continents_list.push_back(Continents(temp_name, temp_score));
-
 					}
 					else {
 						break;
@@ -123,19 +118,19 @@ int main() {
 				}
 			}
 			else if (line.compare("[Territories]") == 0) {
-				getline(map_file, line);
-
-
-
-			}
-			else {
-				cout << "There was an error with the files format" << endl;
+				
+				//loop until end of file
+				while (!map_file.eof()) {
+					getline(map_file, line);
+					countries_list.push_back(Countries (split(line, ",")));
+				}
 			}
 		}
+		map_file.close();
 
+		cout << "Success" << endl;
 		std::cin.get();
 
-		map_file.close();
 	}
 	else {
 		cout << "There was an error opening your file." << endl;
@@ -144,7 +139,7 @@ int main() {
 };
 
 
-//works
+//returns a vector of strings split by the delimeter
 vector<string> split(string str, string delim) {
 
 	vector<string> temp_container;

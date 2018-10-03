@@ -21,9 +21,15 @@
     <ClCompile Include="map_menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MapLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="map_menu.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapLoader.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

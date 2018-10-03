@@ -116,9 +116,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MapLoader.cpp" />
     <ClCompile Include="map_menu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MapLoader.h" />
     <ClInclude Include="map_menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
