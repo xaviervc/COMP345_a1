@@ -21,9 +21,15 @@
     <ClCompile Include="driver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MapValidator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="map_validator.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapValidator.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

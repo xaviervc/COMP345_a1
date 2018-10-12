@@ -116,9 +116,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="driver.cpp" />
+    <ClCompile Include="MapValidator.cpp" />
     <ClCompile Include="map_validator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MapValidator.h" />
     <ClInclude Include="map_validator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

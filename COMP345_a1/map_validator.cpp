@@ -1,12 +1,24 @@
+
+/*
+
 #pragma once
 
 #include "map_validator.h"
 
 using namespace std;
 
-//temporary Country class for country name and territory comparison 
+//temporary Country class for country name and territory comparison
+//also for testing the adjacency links
+
+
 class Country {
 public:
+	string name;
+	string x_pos;
+	string y_pos;
+	string territory;
+	vector<Country *> adjacent_countries;
+
 	Country() {
 		name = "";
 		x_pos = "";
@@ -14,18 +26,13 @@ public:
 		territory = "";
 	}
 
-	Country(string Name, string X_pos, string Y_pos, string Territory, vector<string> aCountries) {
-
+	Country(string Name, string X_pos, string Y_pos, string Territory, vector<Country *> aCountries) {
+		name = Name;
+		x_pos = X_pos;
+		y_pos = Y_pos;
+		territory = Territory;
+		adjacent_countries = aCountries;
 	}
-
-private:
-	
-	string name;
-	string x_pos;
-	string y_pos;
-	string territory;
-	vector<string> adjacent_countries;
-
 };
 
 
@@ -35,7 +42,7 @@ void map_validator (string file_path) {
 	//
 	//Change to file_path later
 	//
-	fstream map_file("../maps/D-Day/D-Day.map", ios::in);
+	fstream map_file("../maps/Alabama/Alabama.map", ios::in);
 	
 	//checks to see if the file succesfully opened
 	if (map_file.is_open()) {
@@ -47,11 +54,11 @@ void map_validator (string file_path) {
 		//map configuration vector which holds the header info
 		vector<string> map_config;
 
-		//Continents name vector 
+		//Continents name list
 		vector<string> continents_list;
 		
 		//Countries Vector containing continents
-		vector<vector <string>> countries_list;
+		vector<Country> countries_list;
 
 		//loop to load each line
 		while (!map_file.eof()) {
@@ -107,24 +114,14 @@ void map_validator (string file_path) {
 			}
 			else if (line == "[Territories]") {
 				
-				while (1) {
-					
+				while (!map_file.eof()) {
 					getline(map_file, line);
 
-					if (checkNumberOfCommas(line)) {
-						
-						size_t position;
-						string temp_string;
-						
-						if (line.find(",") != string::npos) {
-							position = line.find(",");
-							temp_string = line.substr(0, position);
-						}
-					}
-					else {
-						cout << "There is an error in the Territories section of the map file." << endl;
-					}
+
 				}
+			}
+			else {
+				cout << "There was an error with one of the header's in the map file. Make sure they are present and spelt correctly." << endl;
 			}
 
 		}
@@ -183,3 +180,5 @@ bool checkNumberOfCommas(string input) {
 
 	return numOfCommas >= 4;
 }
+
+*/

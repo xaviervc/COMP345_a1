@@ -1,4 +1,6 @@
-﻿  driver.cpp
-  map_validator.cpp
+﻿  MapValidator.cpp
+c:\users\xavier\documents\concordia\comp345\comp345_a1\comp345_a1\mapvalidator.cpp(72): warning C4018: '<': signed/unsigned mismatch
+c:\users\xavier\documents\concordia\comp345\comp345_a1\comp345_a1\mapvalidator.cpp(90): warning C4018: '<': signed/unsigned mismatch
+  driver.cpp
   Generating Code...
-  COMP345_a1.vcxproj -> C:\Users\mrnoo\OneDrive\Documents\Concordia\COMP345\COMP345_a1\Debug\COMP345_a1.exe
+  COMP345_a1.vcxproj -> C:\Users\Xavier\Documents\Concordia\COMP345\COMP345_a1\Debug\COMP345_a1.exe
