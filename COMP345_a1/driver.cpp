@@ -10,7 +10,7 @@ int main() {
 
 	MapValidator test(filePath);
 
-	test.validateFile();
-
+	Map alabama = test.loadMap();
+	alabama.display();
 	cin.get();
 }

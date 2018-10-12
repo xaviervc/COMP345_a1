@@ -4,6 +4,8 @@
 #include <iostream>
 #include <stdio.h>
 #include <vector>
+#include "Map.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -14,11 +16,12 @@ public:
 	~MapValidator();
 	MapValidator(string filePath);
 	bool checkHeaders();
-	void validateFile();
+	bool validateFile();
 	vector<string> getFileContents();
-	void checkMapSection();
+	bool checkCountrySection();
 	void loadSections();
-
+	bool checkConti();
+	Map loadMap();
 
 private:
 	vector<string> fileContents;
